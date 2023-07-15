@@ -1,45 +1,50 @@
 import { useEffect, useState } from "react";
-import { getAllDataPoekmon } from "../../api/getDataPokemon";
+import { useNavigate } from "react-router-dom";
+import { getAllDataPokemon, getPokemonImage } from "../../api/getDataPokemon";
+import { getIndexPokemon } from "../../helper/getIndexPokemon";
 
-interface DataPokemonsInterface {
+export interface DataPokemonsInterface {
   name: string;
   url: string;
 }
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [dataPokemons, setDataPokemons] = useState<DataPokemonsInterface[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setLoading(true);
-    getAllDataPoekmon()
+    setLoading((loading) => !loading);
+    getAllDataPokemon()
       .then((response) => setDataPokemons(response.results))
-      .then(() => setLoading(false));
+      .then(() => setLoading((loading) => !loading));
   }, []);
 
-  if (loading) {
-    console.log("lagi loading");
-  } else {
-    console.log(dataPokemons);
-  }
+  const navigateTo = (index: string) => {
+    navigate(`pokemon/${index}`);
+  };
 
   return (
     <>
       <h1 className="text-center text-3xl font-bold">
-        Ini Data Pokemon di Wilayah Kanto :
+        National Pokedex Kanto & Johto Region:
       </h1>
+      {loading && <h3 className="text-center text-2xl">Loading...</h3>}
       <div className="flex justify-between items-center flex-wrap gap-5 ">
         {dataPokemons.map((data, index) => (
-          <div className="flex justify-center items-center flex-col mt-10 border cursor-pointer">
+          <div
+            onClick={() => navigateTo(getIndexPokemon(data.url).toString())}
+            key={data.url}
+            className="flex justify-center items-center flex-col mt-10 border cursor-pointer"
+          >
             <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                index + 1
-              }.png`}
+              src={getPokemonImage(index + 1)}
               alt="pokemon-image"
               className="px-2"
             />
-            <p key={data.url} className="pb-4 ">
-              {data.name}
+            <p className="pb-4 ">
+              {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
             </p>
           </div>
         ))}
