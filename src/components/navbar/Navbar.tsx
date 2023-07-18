@@ -1,15 +1,20 @@
+import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar bg-accent mb-8 rounded-xl ">
+      <nav className="navbar bg-slate-300 mb-8 rounded-xl ">
         <div className="flex-1">
           <NavLink
             to={"/"}
             className="btn btn-ghost normal-case text-warning text-2xl font-bold"
           >
-            POKEMON
+            <img
+              className="max-w-[98px]"
+              src={PokemonLogo}
+              alt="pokemon-logo"
+            />
           </NavLink>
         </div>
         <div className="flex-none">

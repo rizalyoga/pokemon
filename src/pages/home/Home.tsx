@@ -22,9 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="text-center text-3xl font-bold mb-8">
-        National Pokedex Kanto & Johto Region:
-      </h1>
+      <h1 className="text-center text-3xl font-bold mb-9">Pokémon Data Card</h1>
       {loading && <h3 className="text-center text-2xl">Loading...</h3>}
       <div className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {dataPokemons.map((data) => (

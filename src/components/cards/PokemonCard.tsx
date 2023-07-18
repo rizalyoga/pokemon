@@ -14,14 +14,30 @@ const PokemonCard = ({
 }: DataPokemonProps) => {
   const navigate = useNavigate();
 
-  console.log(urlPokemon);
+  // console.log(urlPokemon);
 
   const navigateTo = (index: string) => {
     navigate(`/pokemon/${index}`);
   };
 
+  const pokemonNumberFormat = (indexPokemon: number) => {
+    if (indexPokemon <= 9) {
+      return `00${indexPokemon}`;
+    } else if (indexPokemon > 9 && indexPokemon < 100) {
+      return `0${indexPokemon}`;
+    } else {
+      return indexPokemon;
+    }
+  };
+
   return (
-    <div className="card card-compact bg-base-300 shadow-xl transform transition duration-500 hover:scale-105">
+    <div
+      className="card card-compact bg-slate-300 shadow-xl transform transition duration-500 hover:scale-105"
+      title={pokemonName}
+    >
+      <h4 className="text-slate-600 p-4 font-semibold">
+        {pokemonNumberFormat(getIndexPokemon(urlPokemon))}
+      </h4>
       <img className="w-[180px] m-auto" src={urlImagePokemon} alt="Shoes" />
       <div className="card-body">
         <h2 className="card-title">
@@ -29,7 +45,7 @@ const PokemonCard = ({
         </h2>
         <div className="card-actions justify-end">
           <button
-            className="btn btn-info w-full"
+            className="btn btn-info w-full hover:bg-yellow-300 hover:border-yellow-300 text-white hover:text-slate-700"
             onClick={() => navigateTo(getIndexPokemon(urlPokemon).toString())}
           >
             Show Detail
