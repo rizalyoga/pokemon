@@ -23,6 +23,19 @@ export const getJohtoPokemon = async () => {
   return response.json();
 };
 
+export const getPokemonFilter = async (params: string) => {
+  const response = await fetch(POKEMON_API.concat("?limit=300"));
+  const data = await response.json();
+
+  const PokemoData = data.results.filter(
+    (pokemon: { name: string; url: string }) => {
+      return pokemon.name.toLowerCase().includes(params.toLowerCase());
+    }
+  );
+
+  return PokemoData;
+};
+
 export const getDetailPokemon = async (index: string) => {
   // console.log(POKEMON_API.concat(index));
 

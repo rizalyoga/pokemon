@@ -1,7 +1,25 @@
 import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
-import { NavLink, Outlet } from "react-router-dom";
+import { useState } from "react";
+import {
+  NavLink,
+  Outlet,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 const Navbar = () => {
+  const [params, setParams] = useState("");
+  const [searchParams, setSearchParamas] = useSearchParams();
+  const navigate = useNavigate();
+
+  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (params != "") {
+      navigate(`filter`);
+      setSearchParamas({ pokemon: params });
+    }
+  };
+
   return (
     <>
       <nav className="navbar bg-slate-300 mb-8 rounded-xl ">
@@ -17,6 +35,14 @@ const Navbar = () => {
             />
           </NavLink>
         </div>
+        <form onSubmit={onSubmitHandler} className="form-control">
+          <input
+            type="text"
+            placeholder="Search"
+            className="input input-bordered w-24 md:w-auto"
+            onChange={(e) => setParams(e.target.value)}
+          />
+        </form>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>

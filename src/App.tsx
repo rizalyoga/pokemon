@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import RegionPage from "./pages/region-page/RegionPage";
 import DetailPage from "./pages/detail-page/DetailPage";
+import SearchPage from "./pages/search-page/SearchPage";
 
 function App() {
   const Router = createBrowserRouter([
@@ -26,6 +27,10 @@ function App() {
         {
           path: "pokemon/:idPokemon",
           element: <DetailPage />,
+        },
+        {
+          path: "filter/",
+          element: <SearchPage />,
         },
       ],
     },

@@ -16,8 +16,6 @@ const RegionPage = () => {
 
   const [pokemonData, setPokemonData] = useState<DataPokemonsInterface[]>([]);
 
-  // console.log(pokemonData);
-
   useEffect(() => {
     if (pathname.includes("kanto")) {
       getKantoPokemon().then((response) => setPokemonData(response.results));
