@@ -24,7 +24,7 @@ export const getJohtoPokemon = async () => {
 };
 
 export const getPokemonFilter = async (params: string) => {
-  const response = await fetch(POKEMON_API.concat("?limit=300"));
+  const response = await fetch(POKEMON_API.concat("?limit=500"));
   const data = await response.json();
 
   const PokemoData = data.results.filter(
