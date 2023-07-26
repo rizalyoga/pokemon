@@ -1,4 +1,5 @@
 import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useState } from "react";
 import {
   NavLink,
@@ -8,9 +9,15 @@ import {
 } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [params, setParams] = useState("");
   const [searchParams, setSearchParamas] = useSearchParams();
-  const navigate = useNavigate();
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = (checked: boolean) => {
+    setDarkMode(checked);
+  };
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,6 +70,12 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <DarkModeSwitch
+          className="w-[2rem] h-[2rem] mx-2"
+          checked={isDarkMode}
+          onChange={toggleDarkMode}
+          size={120}
+        />
       </nav>
       <Outlet />
     </>

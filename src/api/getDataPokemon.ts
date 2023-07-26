@@ -6,7 +6,7 @@ export const getPokemonImage = (index: number) => {
 };
 
 export const getAllDataPokemon = async () => {
-  const response = await fetch(POKEMON_API.concat("?limit=12"));
+  const response = await fetch(POKEMON_API.concat("?limit=16"));
 
   return response.json();
 };

@@ -38,7 +38,12 @@ const PokemonCard = ({
       <h4 className="text-slate-600 p-4 font-semibold">
         {pokemonNumberFormat(getIndexPokemon(urlPokemon))}
       </h4>
-      <img className="w-[180px] m-auto" src={urlImagePokemon} alt="Shoes" />
+      <img
+        className="w-[180px] m-auto"
+        src={urlImagePokemon}
+        loading="lazy"
+        alt="Shoes"
+      />
       <div className="card-body">
         <h2 className="card-title">
           {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
