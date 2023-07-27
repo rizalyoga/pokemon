@@ -1,4 +1,5 @@
 import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
+import PokemonLogoMini from "../../assets/logo/pokemon-logo.png";
 import { useEffect, useState } from "react";
 import {
   NavLink,
@@ -47,11 +48,16 @@ const Navbar = () => {
         <div className="flex-1">
           <NavLink
             to={"/"}
-            className="btn btn-ghost normal-case text-warning text-2xl font-bold"
+            className="btn btn-ghost normal-case text-warning text-2xl font-bold max-md:p-0"
           >
             <img
-              className="max-w-[98px]"
+              className="max-w-[98px] max-sm:hidden"
               src={PokemonLogo}
+              alt="pokemon-logo"
+            />
+            <img
+              className="max-w-[30px] md:hidden"
+              src={PokemonLogoMini}
               alt="pokemon-logo"
             />
           </NavLink>
@@ -60,12 +66,12 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-24 md:w-auto max-md:w-full max-md:ml-6"
             onChange={(e) => setParams(e.target.value)}
           />
         </form>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 max-md:ml-4">
             <li>
               <details>
                 <summary>Region</summary>
@@ -85,7 +91,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <label className="swap swap-rotate px-4">
+        <label className="swap swap-rotate pl-4">
           <input type="checkbox" onChange={handleToogle} />
 
           {/* sun icon */}
