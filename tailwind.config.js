@@ -5,4 +5,18 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      "light",
+      {
+        night: {
+          ...require("daisyui/src/theming/themes")["[data-theme=night]"],
+          ".bg-dark-card": {
+            "background-color": "#414558",
+            color: "white",
+          },
+        },
+      },
+    ],
+  },
 };

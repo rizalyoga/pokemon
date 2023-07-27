@@ -10,7 +10,7 @@ import { getPokemonImage } from "../../api/getDataPokemon";
 import { getIndexPokemon } from "../../helper/getIndexPokemon";
 
 const SearchPage = () => {
-  const [searchParams, setSearchParamas] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [pokemonData, setPokemonData] = useState<DataPokemonsInterface[]>([]);
 
   const pokemonParams = searchParams.get("pokemon");

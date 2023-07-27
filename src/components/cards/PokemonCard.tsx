@@ -14,8 +14,6 @@ const PokemonCard = ({
 }: DataPokemonProps) => {
   const navigate = useNavigate();
 
-  // console.log(urlPokemon);
-
   const navigateTo = (index: string) => {
     navigate(`/pokemon/${index}`);
   };
@@ -32,12 +30,12 @@ const PokemonCard = ({
 
   return (
     <div
-      className="card card-compact bg-slate-300 shadow-xl transform transition duration-500 hover:scale-105"
+      className="card card-compact bg-slate-300 shadow-xl transform transition duration-500 hover:scale-105 bg-dark-card"
       title={pokemonName}
     >
-      <h4 className="text-slate-600 p-4 font-semibold">
+      <p className=" p-4 font-semibold">
         {pokemonNumberFormat(getIndexPokemon(urlPokemon))}
-      </h4>
+      </p>
       <img
         className="w-[180px] m-auto"
         src={urlImagePokemon}
