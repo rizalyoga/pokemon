@@ -42,8 +42,12 @@ const Home = () => {
         dataLength={dataPokemons.length}
         next={fetchNextData}
         hasMore={true}
-        loader={<h4 className="text-center font-bold w-full">Loading...</h4>}
-        className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
+        loader={
+          <div className="w-screen min-h-full flex justify-center items-center">
+            <span className="loading loading-spinner loading-lg text-primary"></span>
+          </div>
+        }
+        className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2 overflow-hidden"
       >
         {dataPokemons.map((data) => (
           <PokemonCard

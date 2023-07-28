@@ -8,6 +8,8 @@ import {
   useSearchParams,
 } from "react-router-dom";
 
+import { regionList } from "./RegionList";
+
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -26,6 +28,7 @@ const Navbar = () => {
       ?.setAttribute("data-theme", localTheme as string);
   }, [themes]);
 
+  // Darkmod Handler
   const handleToogle = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setThemes("night");
@@ -34,6 +37,7 @@ const Navbar = () => {
     }
   };
 
+  // Search Handler
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (params != "") {
@@ -44,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar  mb-8 rounded-xl ">
+      <nav className="navbar">
         <div className="flex-1">
           <NavLink
             to={"/"}
@@ -62,11 +66,11 @@ const Navbar = () => {
             />
           </NavLink>
         </div>
-        <form onSubmit={onSubmitHandler} className="form-control">
+        <form onSubmit={onSubmitHandler} className="form-control px-2">
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto max-md:w-full max-md:ml-6"
+            className="input input-bordered w-24 md:w-full "
             onChange={(e) => setParams(e.target.value)}
           />
         </form>
@@ -76,15 +80,17 @@ const Navbar = () => {
               <details>
                 <summary>Region</summary>
                 <ul className="p-2 bg-base-100 z-10">
-                  <li className="pb-2">
-                    <NavLink to={"/"}>All</NavLink>
-                  </li>
-                  <li className="pb-2">
+                  {regionList.map((region) => (
+                    <li className="pb-2" key={region.region}>
+                      <NavLink to={region.link}>{region.region}</NavLink>
+                    </li>
+                  ))}
+                  {/* <li className="pb-2">
                     <NavLink to={"pokemon/kanto-region"}>Kanto</NavLink>
                   </li>
                   <li className="pb-2">
                     <NavLink to={"pokemon/johto-region"}>Johto</NavLink>
-                  </li>
+                  </li> */}
                 </ul>
               </details>
             </li>

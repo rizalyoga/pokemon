@@ -17,15 +17,11 @@ function App() {
           element: <Home />,
         },
         {
-          path: "pokemon/kanto-region",
+          path: "pokemon/:region",
           element: <RegionPage />,
         },
         {
-          path: "pokemon/johto-region",
-          element: <RegionPage />,
-        },
-        {
-          path: "pokemon/:idPokemon",
+          path: "pokemon-detail/:idPokemon",
           element: <DetailPage />,
         },
         {
