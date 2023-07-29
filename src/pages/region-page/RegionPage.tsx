@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
+import Loading from "../../components/loading/Loading";
 import PokemonCard from "../../components/cards/PokemonCard";
 
 import { getPokemonImage, getRegionPokemon } from "../../api/getDataPokemon";
@@ -12,53 +14,43 @@ const RegionPage = () => {
   const { pathname } = useLocation();
 
   const [pokemonData, setPokemonData] = useState<DataPokemonsInterface[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getDataPokemonBasedOnRegion = (offset: string, limit: string) => {
+    setLoading((loading) => !loading);
+    getRegionPokemon(offset, limit)
+      .then((response) => setPokemonData(response.results))
+      .then(() => setLoading((loading) => !loading));
+  };
 
   useEffect(() => {
     switch (regionTitle(pathname)) {
       case "Kanto":
-        getRegionPokemon("1", "151").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("1", "151");
         break;
       case "Johto":
-        getRegionPokemon("151", "100").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("151", "100");
         break;
       case "Hoenn":
-        getRegionPokemon("251", "135").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("251", "135");
         break;
       case "Sinnoh":
-        getRegionPokemon("386", "108").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("386", "108");
         break;
       case "Unova":
-        getRegionPokemon("494", "155").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("494", "155");
         break;
       case "Kalos":
-        getRegionPokemon("649", "72").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("649", "72");
         break;
       case "Alola":
-        getRegionPokemon("721", "88").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("721", "88");
         break;
       case "Galar":
-        getRegionPokemon("809", "96").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("809", "96");
         break;
       case "Paldea":
-        getRegionPokemon("905", "103").then((response) =>
-          setPokemonData(response.results)
-        );
+        getDataPokemonBasedOnRegion("905", "103");
         break;
       default:
         break;
@@ -73,12 +65,15 @@ const RegionPage = () => {
     return regionName[1]?.region;
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <>
-      <h1 className="text-center text-3xl font-bold mb-8">
-        {`National Pokedex ${regionTitle(pathname)} Region:`}
+    <section className="w-full">
+      <h1 className="text-center text-3xl font-bold my-8 ">
+        {`National Pokedex ${regionTitle(pathname)} Region`}
       </h1>
-      {/* {loading && <h3 className="text-center text-2xl">Loading...</h3>} */}
       <div className="grid grid-flow-row gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
         {pokemonData.length > 0
           ? pokemonData.map((data) => (
@@ -91,7 +86,7 @@ const RegionPage = () => {
             ))
           : null}
       </div>
-    </>
+    </section>
   );
 };
 

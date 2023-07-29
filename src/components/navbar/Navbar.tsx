@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar top-0">
         <div className="flex-1">
           <NavLink
             to={"/"}
@@ -85,12 +85,6 @@ const Navbar = () => {
                       <NavLink to={region.link}>{region.region}</NavLink>
                     </li>
                   ))}
-                  {/* <li className="pb-2">
-                    <NavLink to={"pokemon/kanto-region"}>Kanto</NavLink>
-                  </li>
-                  <li className="pb-2">
-                    <NavLink to={"pokemon/johto-region"}>Johto</NavLink>
-                  </li> */}
                 </ul>
               </details>
             </li>
@@ -119,7 +113,9 @@ const Navbar = () => {
           </svg>
         </label>
       </nav>
-      <Outlet />
+      <div className="min-h-screen w-full flex justify-center items-center flex-col">
+        <Outlet />
+      </div>
     </>
   );
 };

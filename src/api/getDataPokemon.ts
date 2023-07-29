@@ -42,8 +42,6 @@ export const getPokemonFilter = async (params: string) => {
 };
 
 export const getDetailPokemon = async (index: string) => {
-  // console.log(POKEMON_API.concat(index));
-
   const response = await fetch(POKEMON_API.concat(`/${index}`));
 
   return response.json();

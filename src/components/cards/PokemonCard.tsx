@@ -16,7 +16,7 @@ const PokemonCard = ({
   const navigate = useNavigate();
 
   const navigateTo = (index: string) => {
-    navigate(`/pokemon-detail/${index}`);
+    navigate(`/pokemon/detail/${index}`);
   };
 
   const pokemonNumberFormat = (indexPokemon: number) => {

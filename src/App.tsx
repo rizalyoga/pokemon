@@ -1,4 +1,3 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
@@ -21,7 +20,7 @@ function App() {
           element: <RegionPage />,
         },
         {
-          path: "pokemon-detail/:idPokemon",
+          path: "pokemon/detail/:idPokemon",
           element: <DetailPage />,
         },
         {
@@ -33,7 +32,7 @@ function App() {
   ]);
 
   return (
-    <div className="margins">
+    <div className="p-5 overflow-x-hidden flex justify-center items-center flex-col">
       <RouterProvider router={Router} />
     </div>
   );
