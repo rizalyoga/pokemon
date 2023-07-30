@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDetailPokemon, getPokemonImage } from "../../api/getDataPokemon";
 
+import Loading from "../../components/loading/Loading";
+
 export interface DetailPokemonInterface {
   abilities: [];
   species: {
@@ -20,6 +22,10 @@ const DetailPage = () => {
         setPokemonData(response)
       );
   }, [idPokemon]);
+
+  if (!pokemonData) {
+    return <Loading />;
+  }
 
   return (
     <div>

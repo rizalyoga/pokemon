@@ -34,17 +34,21 @@ const Home = () => {
     );
   };
 
+  if (loading) return <Loading />;
+
   return (
     <section className="w-full">
-      <h1 className="text-center text-3xl font-bold mb-9">Pokémon Data Card</h1>
-      {loading && <h3 className="text-center text-2xl">Loading...</h3>}
-
+      <h1 className="text-center text-3xl font-bold my-8">Pokémon Data Card</h1>
       <InfiniteScroll
         dataLength={dataPokemons.length}
         next={fetchNextData}
         hasMore={true}
-        loader={<Loading />}
-        className="grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
+        loader={
+          <div className="w-full flex justify-center items-center overflow-x-hidden absolute bottom-0 ">
+            <span className="loading loading-spinner loading-lg text-primary"></span>
+          </div>
+        }
+        className="relative grid grid-flow-row gap-8 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
       >
         {dataPokemons.map((data) => (
           <PokemonCard

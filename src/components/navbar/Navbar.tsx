@@ -92,7 +92,11 @@ const Navbar = () => {
         </div>
 
         <label className="swap swap-rotate pl-4">
-          <input type="checkbox" onChange={handleToogle} />
+          <input
+            type="checkbox"
+            onChange={handleToogle}
+            checked={themes == "light" ? false : true}
+          />
 
           {/* sun icon */}
           <svg
@@ -113,7 +117,7 @@ const Navbar = () => {
           </svg>
         </label>
       </nav>
-      <div className="min-h-screen w-full flex justify-center items-center flex-col">
+      <div className="min-h-screen w-full ">
         <Outlet />
       </div>
     </>
