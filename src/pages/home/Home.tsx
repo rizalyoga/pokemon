@@ -9,6 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import PokemonCard from "../../components/cards/PokemonCard";
 import Loading from "../../components/loading/Loading";
+import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
 
 export interface DataPokemonsInterface {
   name: string;
@@ -59,6 +60,8 @@ const Home = () => {
           />
         ))}
       </InfiniteScroll>
+
+      <ScrollUpButton />
     </section>
   );
 };
