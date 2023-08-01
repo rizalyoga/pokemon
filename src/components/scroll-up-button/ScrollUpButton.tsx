@@ -23,7 +23,7 @@ const ScrollUpButton = () => {
   return (
     <>
       {showButton ? (
-        <button className="fixed bottom-0 right-0 z-50 cursor-pointer p-4 w-[100px]">
+        <button className="fixed bottom-0 right-0 z-50 cursor-pointer p-4 w-[84px] animate-pulse">
           <img
             src={ButtonIcon}
             onClick={handleScrollToTop}

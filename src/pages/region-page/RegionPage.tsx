@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import Loading from "../../components/loading/Loading";
 import PokemonCard from "../../components/cards/PokemonCard";
+import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
 
 import { getPokemonImage, getRegionPokemon } from "../../api/getDataPokemon";
 
@@ -86,6 +87,7 @@ const RegionPage = () => {
             ))
           : null}
       </div>
+      <ScrollUpButton />
     </section>
   );
 };

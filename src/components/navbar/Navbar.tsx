@@ -1,24 +1,21 @@
 import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
 import PokemonLogoMini from "../../assets/logo/pokemon-logo.png";
 import { useEffect, useState } from "react";
-import {
-  NavLink,
-  Outlet,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 import { regionList } from "./RegionList";
 
-const Navbar = () => {
-  const navigate = useNavigate();
+import SearchComponent from "../search-component/SearchComponent";
 
-  const [params, setParams] = useState("");
-  const [, setSearchParamas] = useSearchParams();
+const Navbar = () => {
+  const [paramsForRegion, setParamsForRegion] = useState("Region");
 
   const [themes, setThemes] = useState<string | null>(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
+
+  const [openSearchComponent, setOpenSearchComponent] =
+    useState<boolean>(false);
 
   useEffect(() => {
     localStorage.setItem("theme", themes as string);
@@ -37,13 +34,13 @@ const Navbar = () => {
     }
   };
 
-  // Search Handler
-  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (params != "") {
-      navigate(`filter`);
-      setSearchParamas({ pokemon: params });
-    }
+  const openSearchComponentHandler = () => {
+    setOpenSearchComponent((isOpen) => !isOpen);
+  };
+
+  // Select Region Handler
+  const regionHandler = (regionSelected: string) => {
+    setParamsForRegion(regionSelected);
   };
 
   return (
@@ -53,6 +50,7 @@ const Navbar = () => {
           <NavLink
             to={"/"}
             className="btn btn-ghost normal-case text-warning text-2xl font-bold max-md:p-0"
+            onClick={() => setParamsForRegion("Region")}
           >
             <img
               className="max-w-[98px] max-sm:hidden"
@@ -66,23 +64,40 @@ const Navbar = () => {
             />
           </NavLink>
         </div>
-        <form onSubmit={onSubmitHandler} className="form-control px-2">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-full "
-            onChange={(e) => setParams(e.target.value)}
-          />
-        </form>
+        <button
+          onClick={openSearchComponentHandler}
+          className="btn btn-ghost btn-circle "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 max-md:ml-4">
             <li>
               <details>
-                <summary>Region</summary>
+                <summary>{paramsForRegion}</summary>
                 <ul className="p-2 bg-base-100 z-10">
                   {regionList.map((region) => (
                     <li className="pb-2" key={region.region}>
-                      <NavLink to={region.link}>{region.region}</NavLink>
+                      <NavLink
+                        to={region.link}
+                        onClick={() => regionHandler(region.region)}
+                      >
+                        {region.region}
+                      </NavLink>
                     </li>
                   ))}
                 </ul>
@@ -119,6 +134,10 @@ const Navbar = () => {
       </nav>
       <div className="min-h-screen w-full ">
         <Outlet />
+        <SearchComponent
+          openSearchComponent={openSearchComponent}
+          openSearchComponentHandler={openSearchComponentHandler}
+        />
       </div>
     </>
   );
