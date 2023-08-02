@@ -29,7 +29,7 @@ export const getRegionPokemon = async (offset: string, limit: string) => {
 };
 
 export const getPokemonFilter = async (params: string) => {
-  const response = await fetch(POKEMON_API.concat("?limit=500"));
+  const response = await fetch(POKEMON_API.concat("?limit=1008"));
   const data = await response.json();
 
   const PokemoData = data.results.filter(

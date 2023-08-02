@@ -4,6 +4,7 @@ import { getPokemonFilter } from "../../api/getDataPokemon";
 
 import PokemonCard from "../../components/cards/PokemonCard";
 import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
+import Loading from "../../components/loading/Loading";
 
 import { DataPokemonsInterface } from "../home/Home";
 
@@ -13,14 +14,20 @@ import { getIndexPokemon } from "../../helper/getIndexPokemon";
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const [pokemonData, setPokemonData] = useState<DataPokemonsInterface[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const pokemonParams = searchParams.get("pokemon");
 
   useEffect(() => {
-    getPokemonFilter(pokemonParams as string).then((response) => {
-      setPokemonData(response);
-    });
+    setLoading((load) => !load);
+    getPokemonFilter(pokemonParams as string)
+      .then((response) => {
+        setPokemonData(response);
+      })
+      .then(() => setLoading((load) => !load));
   }, [pokemonParams]);
+
+  if (loading) return <Loading />;
 
   return (
     <>

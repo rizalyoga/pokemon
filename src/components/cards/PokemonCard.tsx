@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { getIndexPokemon } from "../../helper/getIndexPokemon";
-import pokeballImage from "../../assets/logo/pokeball.png";
 
 interface DataPokemonProps {
   urlPokemon: string;

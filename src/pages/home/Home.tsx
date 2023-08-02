@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <section className="w-full">
-      <h1 className="text-center text-3xl font-bold my-8">Pokémon Data Card</h1>
+      <hr className="my-8 border-slate-300 mx-3"></hr>
       <InfiniteScroll
         dataLength={dataPokemons.length}
         next={fetchNextData}
