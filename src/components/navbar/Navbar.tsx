@@ -40,7 +40,11 @@ const Navbar = () => {
 
   // Select Region Handler
   const regionHandler = (regionSelected: string) => {
-    setParamsForRegion(regionSelected);
+    if (regionSelected === "All") {
+      setParamsForRegion("Region");
+    } else {
+      setParamsForRegion(regionSelected);
+    }
   };
 
   return (
@@ -85,7 +89,7 @@ const Navbar = () => {
         </button>
 
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 max-md:ml-4">
+          <ul className="menu menu-horizontal px-1 ">
             <li>
               <details>
                 <summary>{paramsForRegion}</summary>

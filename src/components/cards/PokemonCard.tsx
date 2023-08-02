@@ -37,15 +37,12 @@ const PokemonCard = ({
       <p className=" p-4 font-semibold">
         {pokemonNumberFormat(getIndexPokemon(urlPokemon))}
       </p>
-      <div
-        className={`min-h-[180px] bg-center bg-contain bg-no-repeat`}
-        style={{ backgroundImage: `url(${pokeballImage})` }}
-      >
+      <div className="min-h-[180px] bg-pokeball-image bg-center bg-contain bg-no-repeat animate-background-image-animation">
         <img
-          className="w-[180px] m-auto transform transition duration-300 group-hover:scale-125"
+          className="w-[180px] m-auto transform transition duration-300 group-hover:scale-125 animate-show-image-animation"
           src={urlImagePokemon}
           loading="lazy"
-          alt="Shoes"
+          alt={`${pokemonName}-image`}
         />
       </div>
       <div className="card-body">

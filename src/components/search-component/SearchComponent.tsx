@@ -1,4 +1,3 @@
-import "./searchModal.css";
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
@@ -34,21 +33,20 @@ const SearchComponent = (props: SearchComponentProps) => {
     <>
       <div
         id="myModal"
-        className="modals main left-0 "
+        className="fixed left-0 z-[20] top-0 w-screen h-screen flex justify-center items-center"
+        style={{ backgroundColor: "rgba(205, 205, 205, 0.882)" }}
         onClick={props.openSearchComponentHandler}
       >
-        <span onClick={props.openSearchComponentHandler} id="close">
-          &times;
-        </span>
         <form
           onSubmit={onSubmitHandler}
-          className="form-control w-[35rem] mx-4"
+          className="animate-show-content-animation form-control w-[35rem] mx-4 relative z-50"
         >
           <input
             type="text"
             placeholder="Search..."
-            className="input input-bordered z-50 w-full px-4"
+            className="input input-bordered w-full px-4 absolute m-auto"
             onChange={(e) => setParamsForSearch(e.target.value)}
+            onClick={props.openSearchComponentHandler}
             autoFocus
           />
         </form>
