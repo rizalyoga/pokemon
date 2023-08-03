@@ -62,7 +62,7 @@ const Navbar = () => {
               alt="pokemon-logo"
             />
             <img
-              className="max-w-[30px] md:hidden"
+              className="max-w-[30px] sm:hidden"
               src={PokemonLogoMini}
               alt="pokemon-logo"
             />

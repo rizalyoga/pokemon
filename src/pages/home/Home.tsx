@@ -49,7 +49,7 @@ const Home = () => {
             <span className="loading loading-spinner loading-lg text-primary"></span>
           </div>
         }
-        className="relative grid grid-flow-row gap-4 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
+        className="relative grid grid-flow-row gap-4 text-neutral-600 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
       >
         {dataPokemons.map((data) => (
           <PokemonCard

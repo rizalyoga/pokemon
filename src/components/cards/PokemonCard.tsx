@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getIndexPokemon } from "../../helper/getIndexPokemon";
+import { pokemonNumberFormat } from "../../helper/pokemonNumberFormat";
 
 interface DataPokemonProps {
   urlPokemon: string;
@@ -16,16 +17,6 @@ const PokemonCard = ({
 
   const navigateTo = (index: string) => {
     navigate(`/pokemon/detail/${index}`);
-  };
-
-  const pokemonNumberFormat = (indexPokemon: number) => {
-    if (indexPokemon <= 9) {
-      return `00${indexPokemon}`;
-    } else if (indexPokemon > 9 && indexPokemon < 100) {
-      return `0${indexPokemon}`;
-    } else {
-      return indexPokemon;
-    }
   };
 
   return (

@@ -27,7 +27,7 @@ const RegionPage = () => {
   useEffect(() => {
     switch (regionTitle(pathname)) {
       case "Kanto":
-        getDataPokemonBasedOnRegion("1", "151");
+        getDataPokemonBasedOnRegion("0", "151");
         break;
       case "Johto":
         getDataPokemonBasedOnRegion("151", "100");
@@ -75,7 +75,7 @@ const RegionPage = () => {
       <h1 className="text-center text-3xl font-bold my-8 ">
         {`National Pokedex ${regionTitle(pathname)} Region`}
       </h1>
-      <div className=" grid grid-flow-row gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+      <div className=" grid grid-flow-row gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
         {pokemonData.length > 0
           ? pokemonData.map((data) => (
               <PokemonCard
