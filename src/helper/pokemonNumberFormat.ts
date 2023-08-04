@@ -7,3 +7,13 @@ export const pokemonNumberFormat = (indexPokemon: number) => {
     return indexPokemon;
   }
 };
+
+export const pokemonHeightFormat = (heightPokemon: number) => {
+  const result = heightPokemon / 10;
+  return result;
+};
+
+export const pokemonWeightFormat = (weightPokemon: number) => {
+  const result = weightPokemon / 10;
+  return result;
+};
