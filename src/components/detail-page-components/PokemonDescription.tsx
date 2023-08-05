@@ -25,7 +25,11 @@ const PokemonDescription = ({
       </h4>
       <div className=" bg-blue-400 p-4 mt-6 rounded-md flex justify-around items-center">
         <div className="flex justify-evenly items-center h-[6rem] w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation">
-          <span className="text-center">
+          <span className="text-center ">
+            <div className="flex justify-center items-center gap-1 mb-2">
+              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+            </div>
             <p className="font-bold text-md text-slate-700 ">
               {pokemonData.types.length == 1
                 ? pokemonData?.types[0]?.type?.name.toUpperCase()
