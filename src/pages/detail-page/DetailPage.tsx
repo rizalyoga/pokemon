@@ -7,6 +7,7 @@ import EvolutionLineComponent from "../../components/detail-page-components/Evol
 import MovesPokemon from "../../components/detail-page-components/MovesPokemon";
 import StatsPokemon from "../../components/detail-page-components/StatsPokemon";
 import PokemonDescription from "../../components/detail-page-components/PokemonDescription";
+import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
 
 type typesPokemon = {
   type: {
@@ -29,6 +30,7 @@ export interface DetailPokemonInterface {
   };
 }
 const DetailPage = () => {
+  window.scrollTo({ top: 0 });
   const { idPokemon } = useParams();
 
   const [pokemonData, setPokemonData] = useState<DetailPokemonInterface>();
@@ -47,14 +49,17 @@ const DetailPage = () => {
   console.log(pokemonData);
 
   return (
-    <div className="w-full flex justify-center items-center flex-col gap-6 my-8">
-      <PokemonDescription pokemonData={pokemonData} />
-      <EvolutionLineComponent />
-      <div className="w-full flex justify-center items-center basis-1/2 gap-4">
-        <MovesPokemon />
-        <StatsPokemon />
+    <>
+      <div className="w-full flex justify-center items-center flex-col gap-6 mt-8">
+        <PokemonDescription pokemonData={pokemonData} />
+        <EvolutionLineComponent />
+        <div className="w-full flex justify-center basis-1/2 gap-4">
+          <MovesPokemon />
+          <StatsPokemon stats={pokemonData.stats} />
+        </div>
       </div>
-    </div>
+      <ScrollUpButton />
+    </>
   );
 };
 
