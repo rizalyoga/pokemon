@@ -1,7 +1,41 @@
-const MovesPokemon = () => {
+import { useState } from "react";
+import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
+
+export type MoveType = {
+  name: string;
+  url: string;
+};
+
+export type MoveDetailType = {
+  accuracy: string;
+  power: string;
+  pp: string;
+  type: {
+    name: string;
+    url: string;
+  };
+  damage_class: {
+    name: string;
+    url: string;
+  };
+};
+
+export interface MovesInterface {
+  move: MoveType;
+}
+
+const MovesPokemon = ({ moves }: { moves: MovesInterface[] }) => {
+  const [moveDetail, setMoveDetail] = useState<MoveDetailType[]>([]);
+
+  const fetchMoveDetail = async (URL: string) => {
+    const response = await fetch(URL);
+
+    return response.json();
+  };
+
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md ">
-      <h1 className="font-bold text-2xl">Moves</h1>
+      <h3 className="font-bold text-2xl">Moves</h3>
       <div className="mt-6 overflow-x-auto max-h-[20rem]">
         <table className="table table-sm">
           <thead>
@@ -16,33 +50,40 @@ const MovesPokemon = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Fire</td>
-              <td>Physical</td>
-              <td>120</td>
-              <td>100%</td>
-              <td>15</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Cy Ganderton</td>
-              <td>Fire</td>
-              <td>Physical</td>
-              <td>120</td>
-              <td>100%</td>
-              <td>15</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>Cy Ganderton</td>
-              <td>Fire</td>
-              <td>Physical</td>
-              <td>120</td>
-              <td>100%</td>
-              <td>15</td>
-            </tr>
+            {moves.map((move, index) => {
+              // const moves = {
+              //   type: "",
+              //   cat: "",
+              //   power: "",
+              //   acc: "",
+              //   PP: "",
+              // };
+
+              // const moveArray: MoveDetailType[] = [];
+              // fetchMoveDetail(move.move.url).then((res) => {
+              // setDetailMove(res);
+              // const data: MoveDetailType = res;
+              // moveArray.push(data);
+              // setMoveDetail([...moveDetail, ...moveArray]);
+              // moves.type = data.type.name;
+              // moves.cat = data.damage_class.name;
+              // moves.power = data.power;
+              // moves.acc = data.accuracy;
+              // moves.PP = data.pp;
+              // });
+
+              return (
+                <tr key={move.move.url}>
+                  <th>{index + 1}</th>
+                  <td>{upperFirstCharacter(move.move.name)}</td>
+                  {/* <td>{moveDetail[index + 1]?.type?.name}</td>
+                  <td>{moveDetail[index + 1]?.damage_class?.name}</td>
+                  <td>{moveDetail[index + 1]?.power}</td>
+                  <td>{moveDetail[index + 1]?.accuracy}</td>
+                  <td>{moveDetail[index + 1]?.pp}</td> */}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

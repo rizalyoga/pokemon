@@ -17,7 +17,7 @@ const PokemonDescription = ({
 
   return (
     <div className="desription-component realtive w-full rounded-lg bg-slate-300 bg-dark-card shadow-md mx-2 p-8">
-      <h2 className="font-bold text-4xl">
+      <h2 className="font-bold text-4xl tracking-tight">
         {pokemonData?.name.toLocaleUpperCase()}
       </h2>
       <h4 className="text-slate-400 font-semibold">
@@ -26,9 +26,9 @@ const PokemonDescription = ({
       <div className=" bg-blue-400 p-4 mt-6 rounded-md flex justify-around items-center">
         <div className="flex justify-evenly items-center h-[6rem] w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation">
           <span className="text-center ">
-            <div className="flex justify-center items-center gap-1 mb-2">
-              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
-              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+            <div className="flex justify-center items-center gap-1 my-1">
+              <div className="badge badge-success badge-xs"></div>
+              <div className="badge badge-primary badge-xs"></div>
             </div>
             <p className="font-bold text-md text-slate-700 ">
               {pokemonData.types.length == 1
