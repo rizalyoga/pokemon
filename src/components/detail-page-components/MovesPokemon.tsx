@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 
 export type MoveType = {
@@ -25,19 +24,11 @@ export interface MovesInterface {
 }
 
 const MovesPokemon = ({ moves }: { moves: MovesInterface[] }) => {
-  const [moveDetail, setMoveDetail] = useState<MoveDetailType[]>([]);
-
-  const fetchMoveDetail = async (URL: string) => {
-    const response = await fetch(URL);
-
-    return response.json();
-  };
-
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md ">
       <h3 className="font-bold text-2xl">Moves</h3>
-      <div className="mt-6 overflow-x-auto max-h-[20rem]">
-        <table className="table table-sm">
+      <div className="mt-6 overflow-x-auto max-h-[25rem]">
+        <table className="table table-sm ">
           <thead>
             <tr>
               <th></th>

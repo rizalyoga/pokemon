@@ -8,6 +8,7 @@ import SpritesPokemon from "../../components/detail-page-components/SpritesPokem
 import MovesPokemon from "../../components/detail-page-components/MovesPokemon";
 import StatsPokemon from "../../components/detail-page-components/StatsPokemon";
 import PokemonDescription from "../../components/detail-page-components/PokemonDescription";
+import AbilitiesPokemon from "../../components/detail-page-components/AbilitiesPokemon";
 import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
 
 import { SpritesInterface } from "../../components/detail-page-components/SpritesPokemon";
@@ -60,7 +61,10 @@ const DetailPage = () => {
         <SpritesPokemon sprites={pokemonData.sprites} />
         <div className="w-full flex justify-center basis-1/2 gap-4">
           <MovesPokemon moves={pokemonData.moves} />
-          <StatsPokemon stats={pokemonData.stats} />
+          <div className="w-full flex flex-col gap-4">
+            <StatsPokemon stats={pokemonData.stats} />
+            <AbilitiesPokemon ability={pokemonData.abilities} />
+          </div>
         </div>
       </div>
       <ScrollUpButton />
