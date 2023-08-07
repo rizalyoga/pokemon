@@ -1,13 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDetailPokemon } from "../../api/getDataPokemon";
+import { MovesInterface } from "../../components/detail-page-components/MovesPokemon";
 
 import Loading from "../../components/loading/Loading";
-import EvolutionLineComponent from "../../components/detail-page-components/EvolutionLine";
+import SpritesPokemon from "../../components/detail-page-components/SpritesPokemon";
 import MovesPokemon from "../../components/detail-page-components/MovesPokemon";
 import StatsPokemon from "../../components/detail-page-components/StatsPokemon";
 import PokemonDescription from "../../components/detail-page-components/PokemonDescription";
+import AbilitiesPokemon from "../../components/detail-page-components/AbilitiesPokemon";
 import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
+
+import { SpritesInterface } from "../../components/detail-page-components/SpritesPokemon";
 
 type typesPokemon = {
   type: {
@@ -24,10 +28,12 @@ export interface DetailPokemonInterface {
   height: number;
   weight: number;
   types: typesPokemon[];
+  moves: MovesInterface[];
   species: {
     name: string;
     url: string;
   };
+  sprites: SpritesInterface;
 }
 const DetailPage = () => {
   window.scrollTo({ top: 0 });
@@ -46,16 +52,19 @@ const DetailPage = () => {
     return <Loading />;
   }
 
-  console.log(pokemonData);
+  // console.log(pokemonData);
 
   return (
     <>
       <div className="w-full flex justify-center items-center flex-col gap-6 mt-8">
         <PokemonDescription pokemonData={pokemonData} />
-        <EvolutionLineComponent />
+        <SpritesPokemon sprites={pokemonData.sprites} />
         <div className="w-full flex justify-center basis-1/2 gap-4">
-          <MovesPokemon />
-          <StatsPokemon stats={pokemonData.stats} />
+          <MovesPokemon moves={pokemonData.moves} />
+          <div className="w-full flex flex-col gap-4">
+            <StatsPokemon stats={pokemonData.stats} />
+            <AbilitiesPokemon ability={pokemonData.abilities} />
+          </div>
         </div>
       </div>
       <ScrollUpButton />

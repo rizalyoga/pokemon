@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { getIndexPokemon } from "../../helper/getIndexPokemon";
 import { pokemonNumberFormat } from "../../helper/pokemonNumberFormat";
+import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 
 interface DataPokemonProps {
   urlPokemon: string;
@@ -36,9 +37,7 @@ const PokemonCard = ({
         />
       </div>
       <div className="card-body">
-        <h2 className="card-title">
-          {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
-        </h2>
+        <h2 className="card-title">{upperFirstCharacter(pokemonName)}</h2>
         <div className="card-actions justify-end">
           <button
             className="btn btn-info w-full hover:bg-yellow-300 hover:border-yellow-300 text-white hover:text-slate-700"
