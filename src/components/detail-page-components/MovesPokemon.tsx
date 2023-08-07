@@ -27,8 +27,8 @@ const MovesPokemon = ({ moves }: { moves: MovesInterface[] }) => {
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md ">
       <h3 className="font-bold text-2xl">Moves</h3>
-      <div className="mt-6 overflow-x-auto max-h-[25rem]">
-        <table className="table table-sm ">
+      <div className="mt-6 overflow-x-auto max-h-[34rem]">
+        <table className="table table-sm">
           <thead>
             <tr>
               <th></th>
