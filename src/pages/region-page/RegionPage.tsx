@@ -76,16 +76,14 @@ const RegionPage = () => {
         {`National Pokedex ${regionTitle(pathname)} Region`}
       </h1>
       <div className=" grid grid-flow-row gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 overflow-hidden ">
-        {pokemonData.length > 0
-          ? pokemonData.map((data) => (
-              <PokemonCard
-                pokemonName={data.name}
-                urlPokemon={data.url}
-                urlImagePokemon={getPokemonImage(getIndexPokemon(data.url))}
-                key={data.url}
-              />
-            ))
-          : null}
+        {pokemonData.map((data) => (
+          <PokemonCard
+            pokemonName={data.name}
+            urlPokemon={data.url}
+            urlImagePokemon={getPokemonImage(getIndexPokemon(data.url))}
+            key={data.url}
+          />
+        ))}
       </div>
       <ScrollUpButton />
     </section>
