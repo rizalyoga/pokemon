@@ -23,38 +23,36 @@ const PokemonDescription = ({
       <h4 className="text-slate-400 font-semibold">
         #{pokemonNumberFormat(pokemonData.id)}
       </h4>
-      <div className=" bg-blue-400 p-4 mt-6 rounded-md flex justify-around items-center">
-        <div className="flex justify-evenly items-center h-[6rem] w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation">
-          <span className="text-center ">
-            <div className="flex justify-center items-center gap-1 my-1">
-              <div className="badge badge-success badge-xs"></div>
-              <div className="badge badge-primary badge-xs"></div>
-            </div>
-            <p className="font-bold text-md text-slate-700 ">
+      <div className=" bg-blue-400 p-4 mt-6 rounded-md flex justify-around items-center max-[1200px]:gap-2 max-[770px]:flex-col-reverse max-[770px]:gap-0 max-[770px]:p-10 max-[450px]:p-4">
+        {/* colomn description */}
+        <div className="flex justify-ceenter items-end py-6 w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation max-[770px]:ml-0 max-[770px]:w-full max-[770px]:h-full max-[770px]:p-4">
+          <span className="text-center basis-1/3 ">
+            <p className="font-bold text-xl text-slate-700 max-[530px]:font-semibold max-[530px]:text-sm">
               {pokemonData.types.length == 1
                 ? pokemonData?.types[0]?.type?.name.toUpperCase()
                 : `${pokemonData.types[0].type.name.toUpperCase()} / ${pokemonData.types[1].type.name.toUpperCase()}`}
             </p>
-            <p className="text-slate-500">Type</p>
+            <p className="text-slate-500 text-sm">Type</p>
           </span>
-          <div className="min-h-[80%] min-w-[1px] bg-slate-400"></div>
-          <span className="text-center">
-            <p className="font-bold text-2xl text-slate-700 ">
+
+          <span className="text-center basis-1/3">
+            <p className="font-bold text-2xl text-slate-700 max-[530px]:font-semibold max-[530px]:text-base">
               {pokemonHeightFormat(pokemonData?.height)} m
             </p>
-            <p className="text-slate-500">Height</p>
+            <p className="text-slate-500 text-sm">Height</p>
           </span>
-          <div className="min-h-[80%] min-w-[1px] bg-slate-400"></div>
-          <span className="text-center">
-            <p className="font-bold text-2xl text-slate-700 ">
+
+          <span className="text-center basis-1/3">
+            <p className="font-bold text-2xl text-slate-700 max-[530px]:font-semibold max-[530px]:text-base">
               {pokemonWeightFormat(pokemonData?.weight)} kg
             </p>
-            <p className="text-slate-500">Weight</p>
+            <p className="text-slate-500 text-sm">Weight</p>
           </span>
         </div>
+        {/* Image-Colomn */}
         <div className="bg-pokeball-image bg-contain bg-no-repeat animate-show-image-animation">
           <img
-            className="w-[30rem] py-4 pr-10 "
+            className="w-[30rem] py-4 pr-10 max-[770px]:pr-0 "
             src={getPokemonImage(idPokemon ? +idPokemon : 0)}
             alt={`Pokemon-image`}
           />

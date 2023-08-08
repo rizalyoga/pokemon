@@ -59,9 +59,9 @@ const DetailPage = () => {
       <div className="w-full flex justify-center items-center flex-col gap-6 mt-8">
         <PokemonDescription pokemonData={pokemonData} />
         <SpritesPokemon sprites={pokemonData.sprites} />
-        <div className="w-full flex justify-center basis-1/2 gap-4">
+        <div className="w-full flex justify-center basis-1/2 gap-6 max-[885px]:flex-col-reverse">
           <MovesPokemon moves={pokemonData.moves} />
-          <div className="w-full flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-6">
             <StatsPokemon stats={pokemonData.stats} />
             <AbilitiesPokemon ability={pokemonData.abilities} />
           </div>

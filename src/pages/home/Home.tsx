@@ -44,11 +44,7 @@ const Home = () => {
         dataLength={dataPokemons.length}
         next={fetchNextData}
         hasMore={true}
-        loader={
-          <div className="w-full flex justify-center items-center overflow-x-hidden absolute bottom-0 ">
-            <span className="loading loading-spinner loading-lg text-primary"></span>
-          </div>
-        }
+        loader={<></>}
         className="relative grid grid-flow-row gap-4 text-neutral-600 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2 overflow-hidden'"
       >
         {dataPokemons.map((data) => (
@@ -60,6 +56,9 @@ const Home = () => {
           />
         ))}
       </InfiniteScroll>
+      <div className="w-full flex justify-center items-center mt-24">
+        <span className="loading loading-spinner loading-lg text-primary -mt-28"></span>
+      </div>
 
       <ScrollUpButton />
     </section>
