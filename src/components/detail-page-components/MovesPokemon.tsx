@@ -1,4 +1,8 @@
 import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
+import { useLazyQuery } from "@apollo/client";
+import { GET_POKEMON_DETAIL_DATA } from "../../graphql/query/getPokemonDetailData";
+import { useEffect } from "react";
+import Loading from "../loading/Loading";
 
 export type MoveType = {
   name: string;
@@ -23,7 +27,29 @@ export interface MovesInterface {
   move: MoveType;
 }
 
-const MovesPokemon = ({ moves }: { moves: MovesInterface[] }) => {
+const MovesPokemon = ({
+  moves,
+  pokemonName,
+}: {
+  moves: MovesInterface[];
+  pokemonName: string;
+}) => {
+  const [getPokemonDetailData, { loading, error, data }] = useLazyQuery(
+    GET_POKEMON_DETAIL_DATA,
+    {
+      variables: { name: pokemonName },
+    }
+  );
+
+  useEffect(() => {
+    getPokemonDetailData();
+  }, []);
+
+  if (loading) return <Loading />;
+  if (error) console.log("error message :", error.message);
+
+  console.log("detail data :", data);
+
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md max-h-[38rem]">
       <h3 className="font-bold text-2xl">Moves</h3>
@@ -44,7 +70,7 @@ const MovesPokemon = ({ moves }: { moves: MovesInterface[] }) => {
             {moves.map((move, index) => {
               return (
                 <tr
-                  className="hover:bg-slate-200 duration-75"
+                  className="hover:bg-slate-200 hover:text-slate-600 duration-75"
                   key={move.move.url}
                 >
                   <th>{index + 1}</th>
