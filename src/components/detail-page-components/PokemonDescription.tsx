@@ -50,7 +50,7 @@ const PokemonDescription = ({
           </span>
         </div>
         {/* Image-Colomn */}
-        <div className="bg-pokeball-image bg-contain bg-no-repeat animate-show-image-animation min-h-[200px]">
+        <div className="bg-pokeball-image bg-contain bg-no-repeat animate-show-image-animation min-h-[300px]">
           <img
             className="w-[30rem] py-4 pr-10 max-[770px]:pr-0 "
             src={getPokemonImage(idPokemon ? +idPokemon : 0)}

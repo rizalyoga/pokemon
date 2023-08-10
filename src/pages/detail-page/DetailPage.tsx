@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getDetailPokemon } from "../../api/getDataPokemon";
 import { MovesInterface } from "../../components/detail-page-components/MovesPokemon";
 
+// Component
 import Loading from "../../components/loading/Loading";
 import SpritesPokemon from "../../components/detail-page-components/SpritesPokemon";
 import MovesPokemon from "../../components/detail-page-components/MovesPokemon";
@@ -11,6 +12,7 @@ import PokemonDescription from "../../components/detail-page-components/PokemonD
 import AbilitiesPokemon from "../../components/detail-page-components/AbilitiesPokemon";
 import ScrollUpButton from "../../components/scroll-up-button/ScrollUpButton";
 
+// Interface
 import { SpritesInterface } from "../../components/detail-page-components/SpritesPokemon";
 
 type typesPokemon = {
@@ -60,10 +62,7 @@ const DetailPage = () => {
         <PokemonDescription pokemonData={pokemonData} />
         <SpritesPokemon sprites={pokemonData.sprites} />
         <div className="w-full flex justify-center basis-1/2 gap-6 max-[885px]:flex-col-reverse">
-          <MovesPokemon
-            moves={pokemonData.moves}
-            pokemonName={pokemonData.name}
-          />
+          <MovesPokemon pokemonName={pokemonData.name} />
           <div className="w-full flex flex-col gap-6">
             <StatsPokemon stats={pokemonData.stats} />
             <AbilitiesPokemon ability={pokemonData.abilities} />
