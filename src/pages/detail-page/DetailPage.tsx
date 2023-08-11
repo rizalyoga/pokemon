@@ -54,8 +54,6 @@ const DetailPage = () => {
     return <Loading />;
   }
 
-  // console.log(pokemonData);
-
   return (
     <>
       <div className="w-full flex justify-center items-center flex-col gap-6 mt-8">

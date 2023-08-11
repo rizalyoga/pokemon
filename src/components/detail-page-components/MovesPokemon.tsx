@@ -1,8 +1,15 @@
-import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
+import { useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_POKEMON_DETAIL_DATA } from "../../graphql/query/getPokemonDetailData";
-import { useEffect, useState } from "react";
 import Loading from "../loading/Loading";
+
+// Helper
+import {
+  setTypePokemon,
+  setCategoryPokemon,
+  getColorType,
+} from "../../helper/pokemonMoveHelper";
+import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 
 export type MoveType = {
   name: string;
@@ -46,8 +53,6 @@ const MovesPokemon = ({ pokemonName }: { pokemonName: string }) => {
   if (loading) return <Loading />;
   if (error) console.log("error message :", error.message);
 
-  console.log(pokemonMoves[94]?.pokemon_v2_move.type_id);
-
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md max-h-[38rem]">
       <h3 className="font-bold text-2xl">Moves</h3>
@@ -68,14 +73,27 @@ const MovesPokemon = ({ pokemonName }: { pokemonName: string }) => {
             {pokemonMoves.map((move, index) => {
               return (
                 <tr
-                  className="hover:bg-slate-200 hover:text-slate-600 duration-75"
+                  className=" hover:bg-slate-200 hover:text-slate-600 duration-75"
                   key={index}
                 >
                   <th>{index + 1}</th>
                   <td>{upperFirstCharacter(move.pokemon_v2_move?.name)}</td>
-                  <td>Fire</td>
-                  <td>
-                    {move.pokemon_v2_move?.pokemon_v2_movedamageclass.name}
+                  <td className="flex items-center">
+                    <div
+                      className={getColorType(move.pokemon_v2_move?.type_id)}
+                    ></div>
+                    <p className="pl-2">
+                      {setTypePokemon(move.pokemon_v2_move.type_id)}
+                    </p>
+                  </td>
+                  <td
+                    title={
+                      move.pokemon_v2_move?.pokemon_v2_movedamageclass.name
+                    }
+                  >
+                    {setCategoryPokemon(
+                      move.pokemon_v2_move?.pokemon_v2_movedamageclass.name
+                    )}
                   </td>
                   <td>
                     {move.pokemon_v2_move?.power
