@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="flex-1">
           <NavLink
             to={"/"}
-            className="btn btn-ghost normal-case text-warning text-2xl font-bold max-md:p-0"
+            className=" normal-case text-warning text-2xl font-bold max-md:p-0"
             onClick={() => setParamsForRegion("Region")}
           >
             <img

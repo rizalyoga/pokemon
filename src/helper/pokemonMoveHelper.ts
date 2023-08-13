@@ -45,41 +45,41 @@ export const setTypePokemon = (typeId: number) => {
 export const getColorType = (typeMove: number) => {
   switch (typeMove) {
     case 3:
-      return "badge badge-xs bg-[#60A5FA]";
+      return "badge badge-sm bg-[#60A5FA] border-[#60A5FA]";
     case 17:
-      return "badge badge-xs bg-[#FC6C6D]";
+      return "badge badge-sm bg-[#FC6C6D] border-[#FC6C6D]";
     case 2:
-      return "badge badge-xs bg-[#5DBE62]";
+      return "badge badge-sm bg-[#5DBE62] border-[#5DBE62]";
     case 11:
-      return "badge badge-xs bg-[#9DC130]";
+      return "badge badge-sm bg-[#9DC130] border-[#9DC130]";
     case 12:
-      return "badge badge-xs bg-[#5F606D]";
+      return "badge badge-sm bg-[#5F606D] border-[#5F606D]";
     case 13:
-      return "badge badge-xs bg-[#0773C7]";
+      return "badge badge-sm bg-[#0773C7] border-[#0773C7]";
     case 4:
-      return "badge badge-xs bg-[#EDD53F]";
+      return "badge badge-sm bg-[#EDD53F] border-[#EDD53F]";
     case 14:
-      return "badge badge-xs bg-[#EF97E6]";
+      return "badge badge-sm bg-[#EF97E6] border-[#EF97E6]";
     case 18:
-      return "badge badge-xs bg-[#D94256]";
+      return "badge badge-sm bg-[#D94256] border-[#D94256]";
     case 15:
-      return "badge badge-xs bg-[#9BB4E8]";
+      return "badge badge-sm bg-[#9BB4E8] border-[#9BB4E8]";
     case 16:
-      return "badge badge-xs bg-[#7975D4]";
+      return "badge badge-sm bg-[#7975D4] border-[#7975D4]";
     case 9:
-      return "badge badge-xs bg-[#D78555]";
+      return "badge badge-sm bg-[#D78555] border-[#D78555]";
     case 5:
-      return "badge badge-xs bg-[#98D8D8]";
+      return "badge badge-sm bg-[#98D8D8] border-[#98D8D8]";
     case 1:
-      return "badge badge-xs bg-[#9A9DA1]";
+      return "badge badge-sm bg-[#9A9DA1] border-[#9A9DA1]";
     case 8:
-      return "badge badge-xs bg-[#B563CE]";
+      return "badge badge-sm bg-[#B563CE] border-[#B563CE]";
     case 10:
-      return "badge badge-xs bg-[#F85888]";
+      return "badge badge-sm bg-[#F85888] border-[#F85888]";
     case 6:
-      return "badge badge-xs bg-[#CEC18C]";
+      return "badge badge-sm bg-[#CEC18C] border-[#CEC18C]";
     case 7:
-      return "badge badge-xs bg-[#B8B8D0]";
+      return "badge badge-sm bg-[#B8B8D0] border-[#B8B8D0]";
   }
 };
 
