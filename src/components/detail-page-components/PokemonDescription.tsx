@@ -6,6 +6,7 @@ import {
 } from "../../helper/pokemonNumberFormat";
 
 import { getPokemonImage } from "../../api/getDataPokemon";
+import { getBackgroundColour } from "../../helper/getBackgroundColour";
 import { DetailPokemonInterface } from "../../pages/detail-page/DetailPage";
 
 const PokemonDescription = ({
@@ -16,16 +17,16 @@ const PokemonDescription = ({
   const { idPokemon } = useParams();
 
   return (
-    <div className="desription-component realtive w-full rounded-lg bg-slate-300 bg-dark-card shadow-md mx-2 p-8">
+    <div className="desription-component realtive w-full rounded-lg bg-slate-300 bg-dark-card shadow-md mx-2 p-6">
       <h2 className="font-bold text-4xl tracking-tight">
         {pokemonData?.name.toLocaleUpperCase()}
       </h2>
       <h4 className="text-slate-400 font-semibold">
         #{pokemonNumberFormat(pokemonData.id)}
       </h4>
-      <div className=" bg-blue-400 p-4 mt-6 rounded-md flex justify-around items-center max-[1200px]:gap-2 max-[770px]:flex-col-reverse max-[770px]:gap-0 max-[770px]:p-10 max-[450px]:p-4">
+      <div className={`${getBackgroundColour(pokemonData.types[0].type.name)}`}>
         {/* colomn description */}
-        <div className="flex justify-ceenter items-end py-6 w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation max-[770px]:ml-0 max-[770px]:w-full max-[770px]:h-full max-[770px]:p-4">
+        <div className="flex justify-center items-end py-6 w-[35rem] bg-slate-200 bg-opacity-70 rounded-md ml-4 animate-show-image-animation max-[770px]:ml-0 max-[770px]:w-full max-[770px]:h-full max-[770px]:p-4">
           <span className="text-center basis-1/3 ">
             <p className="font-bold text-xl text-slate-700 max-[530px]:font-semibold max-[530px]:text-sm">
               {pokemonData.types.length == 1

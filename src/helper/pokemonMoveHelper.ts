@@ -83,50 +83,6 @@ export const getColorType = (typeMove: number) => {
   }
 };
 
-// export const getColorType = (typeMove: string) => {
-//   switch (typeMove) {
-//     case "water":
-//       return "#60A5FA";
-//     case "fire":
-//       return "#FC6C6D";
-//     case "grass":
-//       return "#5DBE62";
-//     case "bug":
-//       return "#9DC130";
-//     case "dark":
-//       return "#5F606D";
-//     case "dragon":
-//       return "#0773C7";
-//     case "electric":
-//       return "#EDD53F";
-//     case "fairy":
-//       return "#EF97E6";
-//     case "fighting":
-//       return "#D94256";
-//     case "flying":
-//       return "#9BB4E8";
-//     case "gosht":
-//       return "#7975D4";
-//     case "ground":
-//       return "#D78555";
-//     case "ice":
-//       return "#98D8D8";
-//     case "normal":
-//       return "#9A9DA1";
-//     case "poison":
-//       return "#B563CE";
-//     case "psychich":
-//       return "#F85888";
-//     case "rock":
-//       return "#CEC18C";
-//     case "steel":
-//       return "#B8B8D0";
-
-//     default:
-//       break;
-//   }
-// };
-
 export const setCategoryPokemon = (category: string) => {
   switch (category) {
     case "status":
