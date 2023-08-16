@@ -26,6 +26,28 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
+      {
+        mytheme: {
+          water: "#60A5FA",
+          fire: "#FC6C6D",
+          grass: "#5DBE62",
+          bug: "#9DC130",
+          dark: "#5F606D",
+          dragon: " #0773C7",
+          electric: "#EDD53F",
+          fairy: "#EF97E6",
+          fighting: "#D94256",
+          flying: "#9BB4E8",
+          gosht: "#7975D4",
+          ground: "#D78555",
+          ice: "#98D8D8",
+          normal: "#9A9DA1",
+          poison: "#B563CE",
+          psychic: "#F85888",
+          rock: "#CEC18C",
+          steel: "#B8B8D0",
+        },
+      },
       "light",
       {
         night: {

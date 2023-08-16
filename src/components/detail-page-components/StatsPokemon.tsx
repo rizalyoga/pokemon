@@ -11,7 +11,7 @@ export interface StatsPropsInterface {
 
 const StatsPokemon = ({ stats }: { stats: StatsPropsInterface[] }) => {
   return (
-    <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md">
+    <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md ">
       <h3 className="font-bold text-2xl">Base Stats</h3>
       <div className="mt-6 flex gap-4">
         <div className="status-name">
@@ -33,7 +33,7 @@ const StatsPokemon = ({ stats }: { stats: StatsPropsInterface[] }) => {
           {stats.map((base_stat, index) => (
             <progress
               title={`${base_stat.base_stat.toString()} / 240`}
-              className="progress progress-warning w-full"
+              className={`progress progress-error`}
               value={base_stat.base_stat}
               max="240"
               key={index}
