@@ -45,41 +45,41 @@ export const getBackgroundColour = (type: string) => {
 export const getStatProgressColour = (type: string) => {
   switch (type) {
     case "water":
-      return "progress progress-water ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#60A5FA] ";
     case "fire":
-      return "progress progress-fire ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#FC6C6D] ";
     case "grass":
-      return "progress progress-grass ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#5DBE62] ";
     case "bug":
-      return "progress progress-bug ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#9DC130] ";
     case "dark":
-      return "progress progress-dark ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#5F606D] ";
     case "dragon":
-      return "progress progress-dragon ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#0773C7] ";
     case "electric":
-      return "progress progress-electric ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#EDD53F] ";
     case "fairy":
-      return "progress progress-fairy ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#EF97E6] ";
     case "fighting":
-      return "progress progress-fighting ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#D94256] ";
     case "flying":
-      return "progress progress-flying ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#9BB4E8] ";
     case "gosht":
-      return "progress progress-gosht ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#7975D4] ";
     case "ground":
-      return "progress progress-ground ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#D78555] ";
     case "ice":
-      return "progress progress-ice ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#98D8D8] ";
     case "normal":
-      return "progress progress-normal ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#9A9DA1] ";
     case "poison":
-      return "progress progress-poison ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#B563CE] ";
     case "psychic":
-      return "progress progress-psychic ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#F85888] ";
     case "rock":
-      return "progress progress-rock ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#CEC18C] ";
     case "steel":
-      return "progress progress-steel ";
+      return "w-full rounded-xl h-2 [&::-webkit-progress-bar]:rounded-md [&::-webkit-progress-value]:rounded-md [&::-webkit-progress-bar]:bg-slate-500 [&::-webkit-progress-value]:bg-[#B8B8D0] ";
 
     default:
       break;

@@ -1,3 +1,5 @@
+import { getStatProgressColour } from "../../helper/getBackgroundColour";
+
 type StatsType = {
   name: string;
   url: string;
@@ -9,7 +11,13 @@ export interface StatsPropsInterface {
   state: StatsType;
 }
 
-const StatsPokemon = ({ stats }: { stats: StatsPropsInterface[] }) => {
+const StatsPokemon = ({
+  stats,
+  typePokemon,
+}: {
+  stats: StatsPropsInterface[];
+  typePokemon: string;
+}) => {
   return (
     <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md ">
       <h3 className="font-bold text-2xl">Base Stats</h3>
@@ -33,7 +41,7 @@ const StatsPokemon = ({ stats }: { stats: StatsPropsInterface[] }) => {
           {stats.map((base_stat, index) => (
             <progress
               title={`${base_stat.base_stat.toString()} / 240`}
-              className={`progress progress-error`}
+              className={getStatProgressColour(typePokemon)}
               value={base_stat.base_stat}
               max="240"
               key={index}
