@@ -2,7 +2,7 @@
 
 <!-- PROJECT LOGO -->
 
-<img src="public/pokemon-logo.png" alt="Logo" width="2000" height="auto" />
+<img src="public/pokemon-logo.png" alt="Logo" width="400" height="auto" />
 
 </div>
 
@@ -41,6 +41,7 @@ Here is a working live demo : https://pokemon-rizalyoga.vercel.app/
 - Search pokemon
 - light & dark mode
 - infinite scroll
+- scroll to top button
 
 ## 🧰 Run in locale
 
