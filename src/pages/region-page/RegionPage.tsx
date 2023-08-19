@@ -18,10 +18,10 @@ const RegionPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const getDataPokemonBasedOnRegion = (offset: string, limit: string) => {
-    setLoading((loading) => !loading);
+    setLoading(true);
     getRegionPokemon(offset, limit)
       .then((response) => setPokemonData(response.results))
-      .then(() => setLoading((loading) => !loading));
+      .then(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -52,8 +52,6 @@ const RegionPage = () => {
         break;
       case "Paldea":
         getDataPokemonBasedOnRegion("905", "103");
-        break;
-      default:
         break;
     }
   }, [pathname]);

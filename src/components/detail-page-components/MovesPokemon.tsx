@@ -54,7 +54,7 @@ const MovesPokemon = ({ pokemonName }: { pokemonName: string }) => {
   if (error) console.log("error message :", error.message);
 
   return (
-    <div className="p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md max-h-[38rem]">
+    <div className="relative p-8 bg-slate-300 bg-dark-card w-full rounded-lg shadow-md">
       <h3 className="font-bold text-2xl">Moves</h3>
       <div className="mt-6 overflow-y-auto max-h-[30rem]">
         <table className="table table-sm table-pin-rows">
