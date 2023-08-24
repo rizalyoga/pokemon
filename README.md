@@ -21,15 +21,15 @@ Here is a working live demo : https://pokemon-rizalyoga.vercel.app/
 
 ## 🖼️ Pages
 
-### Homepage
+### Homepage Light Mode
 
 <img src="src/assets/ss/pokemon-light.png" alt="Logo" width="100%" height="auto" />
 
-### Battle
+### Homepage Dark Mode
 
 <img src="src/assets/ss/pokemon-dark.png" alt="Logo" width="100%" height="auto" />
 
-### Skills page
+### Pokemon Detail Page
 
 <img src="src/assets/ss/pokemon-detail.png" alt="Logo" width="100%" height="auto" />
 
