@@ -48,7 +48,7 @@ const MovesPokemon = ({ pokemonName }: { pokemonName: string }) => {
     getPokemonDetailData().then(() => {
       setPokemonMoves(data?.pokemon_v2_pokemon[0]?.pokemon_v2_pokemonmoves);
     });
-  }, [data, getPokemonDetailData]);
+  }, []);
 
   if (loading) return <Loading />;
   if (error) console.log("error message :", error.message);
