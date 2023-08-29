@@ -10,6 +10,12 @@ const RegionPageComponent = lazy(
   () => import("./pages/region-page/RegionPage")
 );
 
+const EvolutionLine = lazy(
+  () => import("./pages/evolution-line/EvolutionLine")
+);
+
+const MyPokemon = lazy(() => import("./pages/my-pokemon/MyPokemon"));
+
 function App() {
   const Router = createBrowserRouter([
     {
@@ -31,6 +37,18 @@ function App() {
         {
           path: "pokemon/detail/:idPokemon",
           element: <DetailPage />,
+        },
+        {
+          path: "pokemon/evolutions",
+          element: <EvolutionLine />,
+        },
+        {
+          path: "/my-pokemon",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <MyPokemon />
+            </Suspense>
+          ),
         },
         {
           path: "filter/",
