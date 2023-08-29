@@ -1,5 +1,7 @@
 import PokemonLogo from "../../assets/logo/Pokémon_logo.svg";
 import PokemonLogoMini from "../../assets/logo/pokemon-logo.png";
+import PokeballIcon from "../../assets/icons/pokeball.png";
+
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -87,7 +89,13 @@ const Navbar = () => {
             />
           </svg>
         </button>
-
+        <NavLink title="my-pokemon" to={"/my-pokemon"}>
+          <img
+            src={PokeballIcon}
+            className="w-[30px] cursor-pointer p-1 hover:bg-slate-400 rounded-full duration-150"
+            alt="pokeball-icon"
+          />
+        </NavLink>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 ">
             <li>

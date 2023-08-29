@@ -48,13 +48,13 @@ const PokemonCard = ({
       >
         <div className="flex justify-between">
           <p className=" p-4 font-semibold">
-            {pokemonNumberFormat(getIndexPokemon(urlPokemon))}
+            {urlPokemon && pokemonNumberFormat(getIndexPokemon(urlPokemon))}
           </p>
           <button
             onClick={() => isOpenModalHandler()}
-            className="m-4 px-3 py-1 rounded-full text-white bg-blue-300 hover:bg-blue-500 duration-300"
+            className="m-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-blue-400 hover:bg-blue-500 duration-200"
           >
-            catch
+            CATCH
           </button>
         </div>
         <div className="min-h-[180px] bg-pokeball-image bg-center bg-contain bg-no-repeat animate-background-image-animation">

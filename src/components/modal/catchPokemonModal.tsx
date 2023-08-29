@@ -26,18 +26,28 @@ const CatchPokemonModal = ({
     if (isCatched === 1 && !myPokemon) {
       const pokemonData = {
         pokemonName: dataPokemon.pokemonName,
-        pokemonUrl: dataPokemon.urlPokemon,
+        urlPokemon: dataPokemon.urlPokemon,
+        urlImagePokemon: dataPokemon.urlImagePokemon,
       };
 
       myPokemonArr.push(pokemonData);
+      alert(
+        `Congratulations you have successfully caught ${pokemonData.pokemonName.toUpperCase()} 🎊`
+      );
       localStorage.setItem("myPokemon", JSON.stringify(myPokemonArr));
     } else if (isCatched === 1 && myPokemon) {
       const pokemonData = {
         pokemonName: dataPokemon.pokemonName,
-        pokemonUrl: dataPokemon.urlPokemon,
+        urlPokemon: dataPokemon.urlPokemon,
+        urlImagePokemon: dataPokemon.urlImagePokemon,
       };
       myPokemon.push(pokemonData);
       localStorage.setItem("myPokemon", JSON.stringify(myPokemon));
+      alert(
+        `Congratulations you have successfully caught ${pokemonData.pokemonName.toUpperCase()} 🎊`
+      );
+    } else {
+      alert(`Sorry, you fail to caught ${dataPokemon.pokemonName} 😭`);
     }
   };
 
@@ -80,7 +90,7 @@ const CatchPokemonModal = ({
               type="button"
               className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white mb-4 shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             >
-              Cancel
+              Close
             </button>
           </div>
         </div>
