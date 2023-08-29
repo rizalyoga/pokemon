@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "pokeball-image": "url(/src/assets/logo/pokeball.png)",
+        "catch-poke-bg": "url(/src/assets/bg/catch-poke-bg.jpg)",
       },
       animation: {
         "show-content-animation": "zoom 0.3s",
