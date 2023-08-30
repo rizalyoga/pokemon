@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getIndexPokemon } from "../../helper/getIndexPokemon";
 import { pokemonNumberFormat } from "../../helper/pokemonNumberFormat";
-import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 import { DataPokemonProps } from "./PokemonCard";
 
 interface DataMyPokemonProps {
@@ -59,31 +58,31 @@ const MyPokemonCard = ({
             {urlPokemon && pokemonNumberFormat(getIndexPokemon(urlPokemon))}
           </p>
           <p className="font-bold text-lg mt-[4px]">
-            {upperFirstCharacter(pokemonName)}
+            {pokemonName.toUpperCase()}
           </p>
         </div>
 
         <div className="min-h-[180px] bg-pokeball-image bg-center bg-contain bg-no-repeat animate-background-image-animation">
           <img
-            className="w-[180px] m-auto transform transition duration-300 group-hover:scale-125 animate-show-image-animation"
+            className="w-[220px] m-auto transform transition duration-300 group-hover:scale-125 animate-show-image-animation"
             src={urlImagePokemon}
             loading="lazy"
             alt={`${pokemonName}-image`}
           />
         </div>
         <div className="card-body">
-          <div className="w-full flex gap-1">
+          <div className="w-full flex gap-2 ">
             <button
-              className="basis-1/2 btn btn-info hover:bg-yellow-300 hover:border-yellow-300 text-white hover:text-slate-700"
+              className="basis-1/2 px-4 py-3 btn-info hover:bg-yellow-300 hover:border-yellow-300 font-bold text-white  hover:text-slate-700 rounded-lg"
               onClick={() => navigateTo(getIndexPokemon(urlPokemon).toString())}
             >
-              Show Detail
+              SHOW DETAIL
             </button>
             <button
               onClick={() => releasePokemonHandler(pokemonName)}
-              className="basis-1/2 btn btn-info hover:bg-yellow-300 hover:border-yellow-300 text-white hover:text-slate-700"
+              className="basis-1/2 px-4 py-3 btn-info hover:bg-yellow-300 hover:border-yellow-300 font-bold text-white  hover:text-slate-700 rounded-lg"
             >
-              Release
+              RELEASE
             </button>
           </div>
         </div>
