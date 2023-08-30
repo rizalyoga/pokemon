@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DataPokemonProps } from "../cards/PokemonCard";
+import AlertAlreadyCaught from "./AlertAlreadyCaught";
+import PokeballIcons from "../../assets/icons/pokeball-icon.png";
 
 interface pokemonProps {
   isOpen: boolean;
@@ -12,13 +14,22 @@ const CatchPokemonModal = ({
   closeModalHandler,
   dataPokemon,
 }: pokemonProps) => {
+  const myPokemon = JSON.parse(localStorage.getItem("myPokemon") as string);
+  const [isPokemonAlreadyCatched, setIsPokemonAlreadyCatched] =
+    useState<boolean>(false);
+
   useEffect(() => {
     if (isOpen == true) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "visible";
+
+    myPokemon?.forEach((pokemon: DataPokemonProps) => {
+      if (pokemon.pokemonName == dataPokemon.pokemonName) {
+        setIsPokemonAlreadyCatched(true);
+      }
+    });
   }, [isOpen]);
 
   const catchHandler = () => {
-    const myPokemon = JSON.parse(localStorage.getItem("myPokemon") as string);
     const myPokemonArr = [];
 
     const isCatched = Math.floor(Math.random() * 2);
@@ -31,6 +42,7 @@ const CatchPokemonModal = ({
       };
 
       myPokemonArr.push(pokemonData);
+      setIsPokemonAlreadyCatched(true);
       alert(
         `Congratulations you have successfully caught ${pokemonData.pokemonName.toUpperCase()} 🎊`
       );
@@ -42,6 +54,7 @@ const CatchPokemonModal = ({
         urlImagePokemon: dataPokemon.urlImagePokemon,
       };
       myPokemon.push(pokemonData);
+      setIsPokemonAlreadyCatched(true);
       localStorage.setItem("myPokemon", JSON.stringify(myPokemon));
       alert(
         `Congratulations you have successfully caught ${pokemonData.pokemonName.toUpperCase()} 🎊`
@@ -63,24 +76,33 @@ const CatchPokemonModal = ({
             <div className="mt-6 text-center flex flex-col justify-center items-center w-full">
               <div className="mt-10">
                 <img
-                  className="w-[250px] ml-2 mt-10"
+                  className="w-[250px] ml-2 mt-10 animate-show-image-animation"
                   src={dataPokemon.urlImagePokemon}
                   alt="pokemon-sprites"
                 />
               </div>
-              <div className="w-full flex flex-col justify-center items-center mt-8">
-                <button
-                  onClick={catchHandler}
-                  className="bg-blue-400 font-bold py-2 px-6 rounded-full text-white hover:bg-blue-500"
-                >
-                  CATCH !
-                </button>
-                <h3
-                  className="text-2xl font-bold mt-2 text-white"
-                  id="modal-title"
-                >
-                  - {dataPokemon.pokemonName.toUpperCase()} -
-                </h3>
+              <h3
+                className="text-2xl font-extrabold mt-6 mb-2 text-white"
+                id="modal-title"
+              >
+                - {dataPokemon.pokemonName.toUpperCase()} -
+              </h3>
+              <div className=" flex flex-col justify-center items-center">
+                {isPokemonAlreadyCatched ? (
+                  <AlertAlreadyCaught />
+                ) : (
+                  <button
+                    onClick={catchHandler}
+                    className="flex justify-center items-center gap-2 font-bold py-2 px-10 rounded-full text-white bg-blue-400 hover:bg-blue-500"
+                  >
+                    <img
+                      className="w-[24px]"
+                      src={PokeballIcons}
+                      alt="pokeball-icon"
+                    />
+                    CATCH !
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -88,9 +110,9 @@ const CatchPokemonModal = ({
             <button
               onClick={() => closeModalHandler()}
               type="button"
-              className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white mb-4 shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+              className="inline-flex w-full justify-center rounded-md bg-red-600 px-10 py-2 text-sm font-semibold text-white mb-4 shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
             >
-              Close
+              LEAVE
             </button>
           </div>
         </div>

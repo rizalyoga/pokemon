@@ -4,7 +4,7 @@ import { getIndexPokemon } from "../../helper/getIndexPokemon";
 import { pokemonNumberFormat } from "../../helper/pokemonNumberFormat";
 import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 
-import CatchPokemonModal from "../modal/catchPokemonModal";
+import CatchPokemonModal from "../modal/CatchPokemonModal";
 
 export interface DataPokemonProps {
   urlPokemon: string;
@@ -42,6 +42,7 @@ const PokemonCard = ({
         closeModalHandler={isOpenModalHandler}
         dataPokemon={dataPokemon}
       />
+
       <div
         className="card card-compact bg-slate-300 shadow-xl bg-dark-card group"
         title={pokemonName}
