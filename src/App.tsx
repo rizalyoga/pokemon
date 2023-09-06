@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import DetailPage from "./pages/detail-page/DetailPage";
 import SearchPage from "./pages/search-page/SearchPage";
+import ErrorPage from "./pages/error-page/ErrorPage";
 import Loading from "./components/loading/Loading";
 
 const RegionPageComponent = lazy(
@@ -21,6 +22,7 @@ function App() {
     {
       path: "/",
       element: <Navbar />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
