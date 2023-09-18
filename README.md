@@ -21,13 +21,13 @@ Here is a working live demo : https://pokemon-rizalyoga.vercel.app/
 
 ## 🖼️ Pages
 
-|          Homepage Light Mode          |         Homepage Dark Mode          |
-| :-----------------------------------: | :---------------------------------: |
-| ![](src/assets/ss/pokemon-light.png)  | ![](src/assets/ss/pokemon-dark.png) |
-|     <b>Modal to Catch Pokemon</b>     |       <b>My Pokemon List</b>        |
-| ![](src/assets/ss/pokemon-catch.png)  |  ![](src/assets/ss/pokemon-my.png)  |
-|      <b>Pokemon Detail Page</b>       |
-| ![](src/assets/ss/pokemon-detail.png) |
+|            Homepage Light Mode            |            Homepage Dark Mode            |
+| :---------------------------------------: | :--------------------------------------: |
+| ![](src/assets/ss/pokemon-light-mode.png) | ![](src/assets/ss/pokemon-dark-mode.png) |
+|       <b>Modal to Catch Pokemon</b>       |          <b>My Pokemon List</b>          |
+|   ![](src/assets/ss/pokemon-catch.png)    |    ![](src/assets/ss/pokemon-my.png)     |
+|        <b>Pokemon Detail Page</b>         |
+|   ![](src/assets/ss/pokemon-detail.png)   |
 
 ## 🔮 Features
 
