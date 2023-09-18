@@ -21,17 +21,13 @@ Here is a working live demo : https://pokemon-rizalyoga.vercel.app/
 
 ## 🖼️ Pages
 
-### Homepage Light Mode
-
-<img src="src/assets/ss/pokemon-light.png" alt="Logo" width="100%" height="auto" />
-
-### Homepage Dark Mode
-
-<img src="src/assets/ss/pokemon-dark.png" alt="Logo" width="100%" height="auto" />
-
-### Pokemon Detail Page
-
-<img src="src/assets/ss/pokemon-detail.png" alt="Logo" width="100%" height="auto" />
+|          Homepage Light Mode          |         Homepage Dark Mode          |
+| :-----------------------------------: | :---------------------------------: |
+| ![](src/assets/ss/pokemon-light.png)  | ![](src/assets/ss/pokemon-dark.png) |
+|     <b>Modal to Catch Pokemon</b>     |       <b>My Pokemon List</b>        |
+| ![](src/assets/ss/pokemon-catch.png)  |  ![](src/assets/ss/pokemon-my.png)  |
+|      <b>Pokemon Detail Page</b>       |
+| ![](src/assets/ss/pokemon-detail.png) |
 
 ## 🔮 Features
 
@@ -42,6 +38,8 @@ Here is a working live demo : https://pokemon-rizalyoga.vercel.app/
 - light & dark mode
 - infinite scroll
 - scroll to top button
+- catch pokemon & save to local storage
+- display list of pokemon that already caught
 
 ## 🧰 Run in locale
 
