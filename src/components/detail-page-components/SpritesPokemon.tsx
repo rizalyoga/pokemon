@@ -5,7 +5,7 @@ export interface SpritesInterface {
   front_shiny: string;
 }
 
-const EvolutionLine = ({ sprites }: { sprites: SpritesInterface }) => {
+const SpritesComponent = ({ sprites }: { sprites: SpritesInterface }) => {
   return (
     <div className="p-8 w-full bg-slate-300 bg-dark-card rounded-md shadow-md">
       <h3 className="font-bold text-2xl">Sprites Pokemon</h3>
@@ -67,4 +67,4 @@ const EvolutionLine = ({ sprites }: { sprites: SpritesInterface }) => {
   );
 };
 
-export default EvolutionLine;
+export default SpritesComponent;
