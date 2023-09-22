@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "../../components/loading/Loading";
 import { useLazyQuery } from "@apollo/client";
-
+import useFetchMore from "../../helper/useFetchMore";
+import { PokemonEvolutionInterface } from "../../graphql/evolutionLineType";
 import { GET_POKEMON_EVOLUTION } from "../../graphql/query/getPokemonEvolution";
 import { getPokemonImage } from "../../api/getDataPokemon";
 import { upperFirstCharacter } from "../../helper/upperFirstCharacter";
 
 const EvolutionLine = () => {
-  const [evolutionData, setEvolutionData] = useState<object[]>([]);
+  const [evolutionData, setEvolutionData] = useState<
+    PokemonEvolutionInterface[]
+  >([]);
+  const [signal, setSignal] = useState(0);
+  const { errorFetching, nextDataEvolutionLine } = useFetchMore(
+    evolutionData.length
+  );
 
   const [getPokemonEvolutionLine, { loading, error, data }] = useLazyQuery(
     GET_POKEMON_EVOLUTION,
     {
       variables: { offset: 0, limit: 6 },
-    }
-  );
-
-  const [getNextPokemonEvolutionLine, { data: moreData }] = useLazyQuery(
-    GET_POKEMON_EVOLUTION,
-    {
-      variables: { offset: evolutionData.length, limit: 6 },
     }
   );
 
@@ -30,19 +30,20 @@ const EvolutionLine = () => {
     });
   }, [data, getPokemonEvolutionLine]);
 
+  useEffect(() => {
+    if (errorFetching) {
+      console.error(errorFetching);
+    } else {
+      setEvolutionData([...evolutionData, ...(nextDataEvolutionLine || [])]);
+    }
+  }, [signal]);
+
   if (loading) return <Loading />;
   if (error) console.log(error);
 
   const fetchMoreData = () => {
-    getNextPokemonEvolutionLine().then(() => {
-      setEvolutionData([
-        ...evolutionData,
-        ...(moreData?.pokemon_v2_evolutionchain || []),
-      ]);
-    });
+    setSignal(signal + 1);
   };
-
-  console.log(evolutionData);
 
   return (
     <div className="w-full">

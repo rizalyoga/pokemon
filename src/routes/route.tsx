@@ -17,7 +17,7 @@ export const routes = [
     element: <SearchPage />,
   },
   {
-    path: "evolutions-line/",
+    path: "evolutions/",
     element: <EvolutionLine />,
   },
 ];
