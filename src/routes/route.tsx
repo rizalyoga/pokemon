@@ -1,6 +1,7 @@
 import Home from "../pages/home/Home";
 import DetailPage from "../pages/detail-page/DetailPage";
 import SearchPage from "../pages/search-page/SearchPage";
+import EvolutionLine from "../pages/evolution-line/EvolutionLine";
 
 export const routes = [
   {
@@ -14,5 +15,9 @@ export const routes = [
   {
     path: "filter/",
     element: <SearchPage />,
+  },
+  {
+    path: "evolutions/",
+    element: <EvolutionLine />,
   },
 ];

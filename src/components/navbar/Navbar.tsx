@@ -89,6 +89,7 @@ const Navbar = () => {
             />
           </svg>
         </button>
+
         <NavLink title="my-pokemon" to={"/my-pokemon"}>
           <img
             src={PokeballIcon}
@@ -96,7 +97,13 @@ const Navbar = () => {
             alt="pokeball-icon"
           />
         </NavLink>
-        <div className="flex-none">
+
+        <NavLink title="evolution-chain" to={"/evolutions"}>
+          <button className="text-sm ml-2 py-2 px-2 rounded-md hover:bg-slate-300">
+            Evo
+          </button>
+        </NavLink>
+        <div className="flex-none -mr-3">
           <ul className="menu menu-horizontal px-1 ">
             <li>
               <details>
